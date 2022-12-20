@@ -7,7 +7,25 @@
 		<key>AssignmentLloyds.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>913142AC294C849100E87B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>913142C2294C849400E87B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>913142CC294C849400E87B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -25,7 +25,7 @@ final class RedditServiceTest: XCTestCase {
         super.tearDown()
     }
     
-    func testBrewService_Success() {
+    func testRedditService_Success() {
         let expectation = expectation(description: "Reddit Service on Success Case")
         mockNetworkManager.redditList = MockData.redditList
         redditListService.fetchRedditList { (result: Result<RedditListResponse, Error>) in
@@ -41,7 +41,7 @@ final class RedditServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
-    func testBrewService_Failure() {
+    func testRedditService_Failure() {
         let expectation = expectation(description: "Reddit Service on Failure Case")
         mockNetworkManager.error = NSError(domain: "FailedError", code: 0)
         redditListService.fetchRedditList { (result: Result<RedditListResponse, Error>) in

@@ -25,7 +25,7 @@ final class RedditListUseCaseTest: XCTestCase {
         super.tearDown()
     }
     
-    func testBrewUseCaseSuccess() {
+    func testRedditUseCaseSuccess() {
         let expectation = expectation(description: "redditListUseCase Success Case")
         mockRedditListRepository.redditList = MockData.domainRedditList
         redditListUseCase.fetchList { (result: Result<[RedditListEntity], Error>) in
@@ -40,7 +40,7 @@ final class RedditListUseCaseTest: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
-    func testBrewUseCaseFailure() {
+    func testRedditUseCaseFailure() {
         let expectation = expectation(description: "redditListUseCase Failure Case")
         mockRedditListRepository.error = NSError(domain: "Failed_Error", code: 0)
         redditListUseCase.fetchList { (result: Result<[RedditListEntity], Error>) in

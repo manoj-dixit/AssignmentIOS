@@ -8,7 +8,7 @@
 import UIKit
 
 final class RedditDetailsViewController: UIViewController {
-
+    
     @IBOutlet private weak var authorImgView: UIImageView!
     @IBOutlet private weak var authorNameLbl: UILabel!
     var viewModel: RedditDetailsViewModelType?

@@ -14,7 +14,7 @@ protocol RedditListEntityProtocol {
     var authorName: String? { get }
 }
 
-struct RedditListEntity: RedditListEntityProtocol {
+struct RedditListEntity: RedditListEntityProtocol, Equatable {
     var title: String?
     var imageUrl: String?
     var totalAwardsReceived: Int?

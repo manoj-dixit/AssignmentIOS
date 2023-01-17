@@ -8,10 +8,9 @@
 import Foundation
 
 final class RedditListUseCase: UseCase {
-   
     
     let repository: RedditListRepository
-
+    
     init(repository: RedditListRepository) {
         self.repository = repository
     }

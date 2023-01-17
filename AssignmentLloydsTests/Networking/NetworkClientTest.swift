@@ -33,7 +33,7 @@ final class NetworkClientTests: XCTestCase {
             let response = HTTPURLResponse(url: self.testUrl, statusCode: 200, httpVersion: nil, headerFields: nil)!
             return (response, data)
         }
-        networkManger.request(fromUrl: testUrl) {(result: Result<RedditListResponse, Error>) in
+        networkManger.request(from: Endpoint(url: self.testUrl, method: .get))  {(result: Result<RedditListResponse, Error>) in
             switch result {
             case let .success(list):
                 let count = list.data?.children?.count ?? 0
@@ -54,7 +54,7 @@ final class NetworkClientTests: XCTestCase {
             let response = HTTPURLResponse(url: self.testUrl, statusCode: 400, httpVersion: nil, headerFields: nil)!
             return (response, data)
         }
-        networkManger.request(fromUrl: testUrl) { (result: Result<RedditListResponse, Error>) in
+        networkManger.request(from: Endpoint(url: self.testUrl, method: .get))  { (result: Result<RedditListResponse, Error>) in
             switch result {
             case .success(_):
                 XCTFail("Success response was not expected.")

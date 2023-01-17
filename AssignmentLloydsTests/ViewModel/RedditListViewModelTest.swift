@@ -34,6 +34,8 @@ final class RedditListViewModelTest: XCTestCase {
         // then
         XCTAssertNotNil(viewModel.redditList?.count)
         XCTAssertEqual(viewModel.redditList?.count, 25)
+        XCTAssertEqual(viewModel.numberOfSection(), viewModel.redditList?.count)
+        XCTAssertEqual(viewModel.getDataForRows(index: IndexPath(row: 0, section: 0)), viewModel.redditList?.first!)
     }
     
     func test_AfterSearchRetriveTheList() {
@@ -44,7 +46,6 @@ final class RedditListViewModelTest: XCTestCase {
         viewModel.input.didSearch(inputString: "t2_jsk07")
         
         // then
-        //waitForExpectations(timeout: 5)
         XCTAssertNotNil(viewModel.redditList?.count)
         XCTAssertEqual(viewModel.getRedditList()?.count, 1)
     }

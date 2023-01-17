@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 
 final class RedditListTableViewCell: UITableViewCell, ReusableViewNibLoading {
-
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var bgView: UIView!
@@ -19,7 +19,7 @@ final class RedditListTableViewCell: UITableViewCell, ReusableViewNibLoading {
         super.awakeFromNib()
         self.initializeViews()
     }
-
+    
     private func initializeViews() {
         bgView.layer.cornerRadius = 8
         bgView.clipsToBounds = true

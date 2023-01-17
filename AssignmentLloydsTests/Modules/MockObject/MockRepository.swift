@@ -9,7 +9,6 @@ import Foundation
 @testable import AssignmentLloyds
 
 final class MockRedditListRepository: RedditListRepository {
-    
     var redditList: RedditListResponse?
     var error: Error?
 

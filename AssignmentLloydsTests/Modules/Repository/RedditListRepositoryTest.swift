@@ -28,7 +28,7 @@ final class RedditListRepositoryTest: XCTestCase {
     func testBrewRepository_Success() {
         let expectation = expectation(description: "Reddit List Repository of Success Case")
         mockRedditListService.response = MockData.redditList
-        mockRedditListService.fetchRedditList { (result: Result<RedditListResponse, Error>) in
+        redditListRepository.fetchRedditList { (result: Result<RedditListResponse, Error>) in
             switch result {
             case let .success(response):
                 if response.data?.children?.count ?? 0 > 0 {
@@ -44,7 +44,7 @@ final class RedditListRepositoryTest: XCTestCase {
     func testBrewRepository_Failure() {
         let expectation = expectation(description: "Reddit Repository of Failure Case")
         mockRedditListService.error = NetworkError.failed
-        mockRedditListService.fetchRedditList { (result: Result<RedditListResponse, Error>) in
+        redditListRepository.fetchRedditList { (result: Result<RedditListResponse, Error>) in
             switch result {
             case .success(_):
                 XCTFail("Success not expected")

@@ -16,6 +16,6 @@ struct RedditListRemoteService: RedditListDataSource {
     }
     
     func fetchRedditList(completion: @escaping (Result<RedditListResponse, Error>) -> Void) {
-        self.networkManager.request(fromUrl: Configuration.redditListUrl, completion: completion)
+        self.networkManager.request(from: Endpoint(url: Configuration.redditListUrl, method: .get), completion: completion)
     }
 }

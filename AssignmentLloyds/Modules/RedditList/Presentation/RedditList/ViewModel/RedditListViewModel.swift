@@ -44,13 +44,12 @@ final class RedditListViewModel: RedditListViewModelType {
     
     func viewDidLoad() {
         self.useCase.fetchList { result in
+            self.loaderStatus.value = false
             switch result {
             case let .success(list):
-                self.loaderStatus.value = false
                 self.reloadTableData()
                 self.redditList = list
             case let .failure(error):
-                self.loaderStatus.value = false
                 self.showError.value = error.localizedDescription
             }
         }

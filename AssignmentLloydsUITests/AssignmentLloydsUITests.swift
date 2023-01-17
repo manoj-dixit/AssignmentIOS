@@ -26,21 +26,24 @@ final class AssignmentLloydsUITests: XCTestCase {
         app.launch()
         let redditListTableView = app.tables["table--redditListTableView"]
         XCTAssertTrue(redditListTableView.exists, "The reddit list tableview exists")
-        
         let tableCells = redditListTableView.cells
         XCTAssert(tableCells.element.waitForExistence(timeout: 5.0))
         if tableCells.count > 0 {
-            let count: Int = (tableCells.count - 1)
-            let expectation = expectation(description: "Wait for table cells")
-            for i in stride(from: 0, to: count , by: 1) {
-                let tableCell = tableCells.element(boundBy: i)
-                XCTAssertTrue(tableCell.exists, "The \(i) cell is in place on the table")
-                if i == (count - 1) {
-                    expectation.fulfill()
-                }
-            }
-            waitForExpectations(timeout: 10, handler: nil)
-            XCTAssertTrue(true, "Finished validating the table cells")
+            XCTAssertTrue(redditListTableView.cells.count == 25)
+        } else {
+            XCTAssert(false, "Was not able to find any table cells")
+        }
+    }
+    
+    func test_TapOnTableView() {
+        app.launch()
+        let redditListTableView = app.tables["table--redditListTableView"]
+        XCTAssertTrue(redditListTableView.exists, "The reddit list tableview exists")
+        let tableCells = redditListTableView.cells
+        XCTAssert(tableCells.element.waitForExistence(timeout: 5.0))
+        if tableCells.count > 0 {
+            let lastRowIndex = app.tables.children(matching: .cell).count - 1
+            app.tables.cells.element(boundBy: lastRowIndex).tap()
         } else {
             XCTAssert(false, "Was not able to find any table cells")
         }

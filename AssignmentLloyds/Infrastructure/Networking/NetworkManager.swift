@@ -10,7 +10,7 @@ import Foundation
 typealias Response<T: Decodable> = (Result<T, Error>) -> Void
 
 protocol INetworkManager {
-    func request<T: Decodable>(fromUrl url: URL, completion: @escaping Response<T>)
+    func request<T: Decodable>(from endPoint: APIEndPointInterface, completion: @escaping Response<T>)
 }
 
 final class NetworkManager: INetworkManager {
@@ -26,13 +26,14 @@ final class NetworkManager: INetworkManager {
         self.session = session
     }
     
-    func request<T: Decodable>(fromUrl url: URL, completion: @escaping Response<T>) {
+    func request<T: Decodable>(from endPoint: APIEndPointInterface, completion: @escaping Response<T>) {
         let completion: Response<T> = { result in
             DispatchQueue.main.async {
                 completion(result)
             }
         }
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: endPoint.url)
+        request.httpMethod = endPoint.method.rawValue
         let task = session.dataTask(with: request) { data, response, error in
             if let _ = error {
                 return completion(.failure(NetworkError.badRequest))

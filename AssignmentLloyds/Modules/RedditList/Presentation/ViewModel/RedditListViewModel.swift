@@ -15,9 +15,9 @@ protocol RedditListViewModelInput {
 }
 
 protocol RedditListViewModelOutput {
-    var loaderStatus: Dynamic<Bool> { get }
-    var reloadTable: Dynamic<Bool> { get }
-    var showError: Dynamic<String?> { get }
+    var loaderStatus: Dynamic<Bool> { get set }
+    var reloadTable: Dynamic<Bool> { get set }
+    var showError: Dynamic<String?> { get set }
     func numberOfSection() -> Int
     func getDataForRows(index: IndexPath) -> RedditListEntity?
     func getScreenTitle() -> String?

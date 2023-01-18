@@ -9,8 +9,8 @@ import UIKit
 
 final class RedditDetailsViewController: UIViewController {
     
-    @IBOutlet private weak var authorImgView: UIImageView!
-    @IBOutlet private weak var authorNameLbl: UILabel!
+    @IBOutlet weak var authorImgView: UIImageView!
+    @IBOutlet weak var authorNameLbl: UILabel!
     var viewModel: RedditDetailsViewModelType?
     override func viewDidLoad() {
         super.viewDidLoad()
